@@ -103,6 +103,11 @@ if (isset($_SESSION['msg'])) {
 
                     </div>
 
+                    <div class="md-form mb-5">
+                            <label for="comentario">Comentario</label>
+                            <textarea name="comentario" id="" cols="30" rows="3" class="form-control"></textarea>
+                    </div>
+
 
                     <div class="md-form mb-5">
                         <label>Decorações</label>
@@ -119,7 +124,7 @@ if (isset($_SESSION['msg'])) {
                     <input type="text" name="id_cliente" id="cliente" value="<?php echo $_SESSION["Login"]->cod ?> " style="display:none;">
 
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary btn-event type=" submit" name="btnadd" id="btnadd">Enviar</button>
+                        <button class="btn btn-primary btn-event" type="submit" name="btnadd" id="btnadd">Enviar</button>
                     </div>
                 </form>
             </div>

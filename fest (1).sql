@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Dez-2022 às 00:24
+-- Tempo de geração: 04-Dez-2022 às 00:10
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -35,7 +35,6 @@ CREATE TABLE `agendamentos` (
   `dthr_pedido` datetime NOT NULL,
   `cidade_pedido` varchar(100) NOT NULL,
   `logradouro_pedido` varchar(100) NOT NULL,
-  `tema_pedido` varchar(100) NOT NULL,
   `status_pedido` varchar(20) NOT NULL,
   `comentario_pedido` varchar(100) NOT NULL,
   `valor_pedido` varchar(45) NOT NULL,
@@ -204,7 +203,7 @@ CREATE TABLE `temas` (
 --
 
 INSERT INTO `temas` (`cod_tema`, `descricao_tema`, `img_tema`) VALUES
-(1, 'desenho', '../Imgs_banco/desenho.jpg'),
+(1, 'Desenho', '../Imgs_banco/desenhos.jpg'),
 (2, 'Disney', '../Imgs_banco/disney.jpg'),
 (3, 'Fazenda', '../Imgs_banco/fazenda.jpg'),
 (4, 'Infantil', '../Imgs_banco/infantil.jpg'),

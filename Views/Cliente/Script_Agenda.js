@@ -76,7 +76,6 @@ $(document).ready(function () {
         //Evitando fechar modal
         event.preventDefault();
         //Retornando quando checkbox foram checkados
-        $('#cont').val($('input[type=checkbox]:checked').length);
 
         $.ajax({
             type: "POST",

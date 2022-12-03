@@ -1,4 +1,7 @@
 <?php 
+
+    include_once("../conexao.php");
+
     session_start();
     
     //Recebendo dados EM UM ARRAY COMO STRING
@@ -7,6 +10,35 @@
     //Convertendo a data e hora padrao brasileiro para padrao do banco
     $data_start = str_replace('/','-',$dados['dth']);
     $data_start_con = date("Y-m-d H:i:s",strtotime($data_start));
+
+
+    $descricao = $dados["desc"];
+    $data = $data_start_con;
+    $cidade = $dados["cidade"];
+    $logadouro = $dados["logadouro"];
+    $coment = $dados["comentario"];
+    $id_cliente = $dados["id_cliente"];
+    $func = $dados["Func_resp"];
+
+    $sql = "INSERT INTO agendamentos (descricao_pedido,dthr_pedido, cidade_pedido,logradouro_pedido,status_pedido,comentario_pedido,valor_pedido,clientes_cod_cliente,funcionarios_cod_funcionario)
+    VALUES ('$descricao', '$data','$cidade','$logadouro','Pendente','$coment','0','$id_cliente','$func')";
+
+        if ($conn->query($sql) === TRUE) {
+            $last_id = mysqli_insert_id($conn);
+            foreach($dados["dec"] as $item){
+                $sql2 = "INSERT INTO dec_agendamento (agendamentos_cod_pedidos, decoracoes_cod_decoracoes)
+                VALUES ('$last_id', '$item')";
+
+                if ($conn->query($sql2) === TRUE) {
+                    $cad = true;
+                }else {
+                    $cad = false;
+                }
+
+            } 
+        } else {
+            $cad = false;
+        }
 
     $cad = true;
 
