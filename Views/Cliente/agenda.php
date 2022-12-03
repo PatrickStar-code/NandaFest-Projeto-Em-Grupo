@@ -39,6 +39,7 @@ if(isset($_SESSION['msg'])){
 
 
 
+
 <!-- Modal -->
 <div class="modal fade" id="cadastrar_pedido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -84,11 +85,16 @@ if(isset($_SESSION['msg'])){
                    
 
                     <div class="md-form mb-5">
-                        <label for="dec"><input type="checkbox" class="form-control" name="dec" id="dec<id_dec>"value="<id_dec>" >Nome_dec</label>
-                        
+                        <label for="">Decorações</label>
+                        <br>
+                        <div id="accordion-collapse" data-accordion="collapse">
+                        <?php include("./componentes/acordion.php") ?>
+                        </div>
+
                     </div>
 
                     <input type="number" id="cont" name="cont" style="display: none;">
+                    <input type="text" name="id_cliente" id="cliente" value="<?php echo $_SESSION["Login"] -> cod ?> "style="display:none;">
 
                     <div class="modal-footer d-flex justify-content-center">
                         <button class="btn btn-primary btn-event type="submit" name="btnadd" id="btnadd">Enviar</button>
