@@ -24,6 +24,7 @@
     VALUES ('$descricao', '$data','$cidade','$logadouro','Pendente','$coment','0','$id_cliente','$func')";
 
         if ($conn->query($sql) === TRUE) {
+            $cad = true;
             $last_id = mysqli_insert_id($conn);
             foreach($dados["dec"] as $item){
                 $sql2 = "INSERT INTO dec_agendamento (agendamentos_cod_pedidos, decoracoes_cod_decoracoes)
