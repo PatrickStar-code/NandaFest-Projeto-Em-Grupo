@@ -1,4 +1,6 @@
-<?php 
+<?php
+include_once("../conexao.php");
+
 include_once("../top_bot/top.php");
 
 //Classe empresa
@@ -26,13 +28,13 @@ include("./componentes/navbar.php");
 <script src="./Script_Agenda.js"></script>
 <link rel="stylesheet" href="./Style_Agenda.css">
 
-<?php 
-if(isset($_SESSION['msg'])){
+<?php
+if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
 }
 ?>
-
+<br>
 <!-- Body Pagina -->
 <div id='calendar'></div>
 
@@ -52,7 +54,7 @@ if(isset($_SESSION['msg'])){
             </div>
             <div class="modal-body mx-3">
                 <span id="msg"></span>
-                <form  id="add_event" method="POST">
+                <form id="add_event" method="POST">
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="desc">Descrição Agendamento</label>
 
@@ -65,6 +67,8 @@ if(isset($_SESSION['msg'])){
                         <input type="text" id="dth" class="form-control " name="dth" onkeypress="DataHora(event,this)">
                     </div>
 
+
+
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="cidade">Cidade</label>
 
@@ -76,28 +80,46 @@ if(isset($_SESSION['msg'])){
                         <input type="text" id="Logadouro" class="form-control" name="logadouro">
                     </div>
 
-
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="tema">Tema do Evento</label>
-                        <input type="text" id="tema" class="form-control" name="tema">
+                        <label for="Func">Funcionario Responsavel</label>
+                        <select name="Func_resp" class="form-control">
+                            <?php
+                            $sql = "SELECT * FROM funcionarios";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                            ?>
+                          
+                          <option value="<?php echo $row["cod_funcionario"] ?>"><?php echo $row["nome_funcionario"]?></option>
+
+                          
+                          <?php
+                                }
+                            }
+                            ?>
+                        </select>
+
                     </div>
 
-                   
 
                     <div class="md-form mb-5">
-                        <label for="">Decorações</label>
+                        <label>Decorações</label>
+                        <br>
                         <br>
                         <div id="accordion-collapse" data-accordion="collapse">
-                        <?php include("./componentes/acordion.php") ?>
+                            <?php include("./componentes/acordion.php") ?>
                         </div>
 
                     </div>
 
-                    <input type="number" id="cont" name="cont" style="display: none;">
-                    <input type="text" name="id_cliente" id="cliente" value="<?php echo $_SESSION["Login"] -> cod ?> "style="display:none;">
+
+
+                    <input type="text" name="id_cliente" id="cliente" value="<?php echo $_SESSION["Login"]->cod ?> " style="display:none;">
 
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary btn-event type="submit" name="btnadd" id="btnadd">Enviar</button>
+                        <button class="btn btn-primary btn-event type=" submit" name="btnadd" id="btnadd">Enviar</button>
                     </div>
                 </form>
             </div>
