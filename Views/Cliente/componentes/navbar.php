@@ -98,7 +98,7 @@
 						<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Perfil</a>
 					</li>
 					<li>
-						<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Agenda</a>
+						<a href="./agenda.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Agenda</a>
 					</li>
 					<li>
 						<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Fale Conosco</a>
