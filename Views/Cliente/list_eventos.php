@@ -23,7 +23,6 @@ while($row_events = $resultado_events->fetch(PDO::FETCH_ASSOC)){
         'id' => $id, 
         'title' => $title, 
         'start' => $start,
-        'end' => $start 
         ];
 }
 
