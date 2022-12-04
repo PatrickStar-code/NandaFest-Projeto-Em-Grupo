@@ -16,10 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Pegando eventos
         events: './list_events.php',
 
-
-
-
-
         extraParams: function () {
             return {
                 cachebuster: new Date().valueOf()

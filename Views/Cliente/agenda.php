@@ -155,8 +155,6 @@ if (isset($_SESSION['msg'])) {
                         <dt class="col-sm-3">Início do evento</dt>
                         <dd class="col-sm-9" id="start"></dd>
 
-                        <dt class="col-sm-3">Fim do evento</dt>
-                        <dd class="col-sm-9" id="end"></dd>
                     </dl>
                 </div>
             </div>
