@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         eventLimit: true, // allow "more" link when too many events
 
         // Pegando eventos
-        events: './list_events.php',
+        events: './list_eventos.php',
 
         extraParams: function () {
             return {
