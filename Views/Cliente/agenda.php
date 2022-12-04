@@ -45,7 +45,7 @@ if (isset($_SESSION['msg'])) {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs- requireddismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -84,7 +84,7 @@ if (isset($_SESSION['msg'])) {
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="desc">Descrição Agendamento</label>
 
-                        <input type="text" id="desc" class="form-control" name="desc">
+                        <input type="text" id="desc" class="form-control" required name="desc">
                     </div>
 
                     <div class="md-form mb-5">
@@ -98,12 +98,12 @@ if (isset($_SESSION['msg'])) {
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="cidade">Cidade</label>
 
-                        <input type="text" id="cidade" class="form-control" name="cidade">
+                        <input type="text" id="cidade" class="form-control" required name="cidade">
                     </div>
 
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="Logadouro">Logadouro</label>
-                        <input type="text" id="Logadouro" class="form-control" name="logadouro">
+                        <input type="text" id="Logadouro" class="form-control" required name="logadouro">
                     </div>
 
                     <div class="md-form mb-5">
