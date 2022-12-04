@@ -28,6 +28,8 @@ include("./componentes/navbar.php");
 <script src="./Script_Agenda.js"></script>
 <link rel="stylesheet" href="./Style_Agenda.css">
 
+
+
 <?php
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
@@ -91,11 +93,11 @@ if (isset($_SESSION['msg'])) {
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
                             ?>
-                          
-                          <option value="<?php echo $row["cod_funcionario"] ?>"><?php echo $row["nome_funcionario"]?></option>
 
-                          
-                          <?php
+                                    <option value="<?php echo $row["cod_funcionario"] ?>"><?php echo $row["nome_funcionario"] ?></option>
+
+
+                            <?php
                                 }
                             }
                             ?>
@@ -104,8 +106,8 @@ if (isset($_SESSION['msg'])) {
                     </div>
 
                     <div class="md-form mb-5">
-                            <label for="comentario">Comentario</label>
-                            <textarea name="comentario" id="" cols="30" rows="3" class="form-control"></textarea>
+                        <label for="comentario">Comentario</label>
+                        <textarea name="comentario" id="" cols="30" rows="3" class="form-control"></textarea>
                     </div>
 
 
@@ -131,9 +133,36 @@ if (isset($_SESSION['msg'])) {
         </div>
 
     </div>
-
     <!-- Modal -->
-    <!-- Fim Body -->
+
+    <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">ID do evento</dt>
+                        <dd class="col-sm-9" id="id"></dd>
+
+                        <dt class="col-sm-3">Título do evento</dt>
+                        <dd class="col-sm-9" id="title"></dd>
+
+                        <dt class="col-sm-3">Início do evento</dt>
+                        <dd class="col-sm-9" id="start"></dd>
+
+                        <dt class="col-sm-3">Fim do evento</dt>
+                        <dd class="col-sm-9" id="end"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Fim Body -->
 
 
-    <?php include_once("../top_bot/bot.php") ?>
+        <?php include_once("../top_bot/bot.php") ?>
