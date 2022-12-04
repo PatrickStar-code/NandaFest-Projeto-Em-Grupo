@@ -41,7 +41,6 @@
             $cad = false;
         }
 
-    $cad = true;
 
     //Situação /msg
     //Se cadastrar com sucesso

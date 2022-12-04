@@ -6,9 +6,10 @@
  * porém lembre-se de conceder os créditos ao desenvolvedor.
  */
 
-define('HOST', 'localhost');
-define('USER', 'root');
-define('PASS', '');
-define('DBNAME', 'fest');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "fest";
 
-$conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS);
+
+$conn = new mysqli($servername, $username, $password, $dbname);

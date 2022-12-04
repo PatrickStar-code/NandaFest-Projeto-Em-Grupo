@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // eventLimit: true,
 
-        //Pegando eventos
-        // events: 'list_eventos.php',
+        // Pegando eventos
+        events: 'list_eventos.php',
 
         extraParams: function() {
             return {
