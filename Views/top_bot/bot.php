@@ -14,6 +14,10 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
 ></script> -->
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+
+
+<!-- pEGANDO CEP -->
 <script>
     $("#cep").blur(function() {
 
