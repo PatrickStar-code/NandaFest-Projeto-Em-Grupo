@@ -173,6 +173,33 @@ if (isset($_POST["cadastro"])) {
         </div>
     </div>
 </div>
+
+<!-- pEGANDO CEP -->
+<script>
+    $("#cep").blur(function() {
+
+        var cep = this.value.replace(/[^0-9]/, "");
+
+
+        if (cep.length != 8) {
+            return false;
+        }
+
+
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+
+        $.getJSON(url, function(dadosRetorno) {
+            try {
+
+                $("#endereco").val(dadosRetorno.logradouro);
+                $("#bairro").val(dadosRetorno.bairro);
+                $("#cidade").val(dadosRetorno.localidade);
+                $("#uf").val(dadosRetorno.uf);
+            } catch (ex) {}
+        });
+    });
+</script>
 <script>
     $("#telefone").mask("(00)00000-0000")
 </script>
