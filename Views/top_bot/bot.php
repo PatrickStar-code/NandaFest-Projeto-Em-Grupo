@@ -13,5 +13,30 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
 ></script> -->
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    $("#cep").blur(function() {
 
+        var cep = this.value.replace(/[^0-9]/, "");
+
+
+        if (cep.length != 8) {
+            return false;
+        }
+
+
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+
+        $.getJSON(url, function(dadosRetorno) {
+            try {
+
+                $("#endereco").val(dadosRetorno.logradouro);
+                $("#bairro").val(dadosRetorno.bairro);
+                $("#cidade").val(dadosRetorno.localidade);
+                $("#uf").val(dadosRetorno.uf);
+            } catch (ex) {}
+        });
+    });
+</script>
 </html>

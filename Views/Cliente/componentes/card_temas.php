@@ -28,14 +28,13 @@
     <button class="absolute left-1/4 bottom-4 bg-white text-black font-bold rounded-lg h-10 w-48">Acessar</button>
   </div>
 </div> -->
-
-<div class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg m-3">
+<a href="./listar_dec.php?id=<?php echo $tema -> cod?>&tema=<?php echo $tema -> desc ?>" class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg m-3">
     <img class="object-cover w-full h-56" src="<?php echo $tema->img ?>" alt="avatar">
 
     <div class="py-5 text-center">
         <span href="" class="block text-2xl font-bold text-gray-800 " tabindex="0" role="link"><?php echo $tema->desc ?></span>
         <span class="text-sm text-gray-700"></span>
     </div>
-</div>
+</a>
 
 <?php } ?>

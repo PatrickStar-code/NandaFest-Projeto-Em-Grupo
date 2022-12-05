@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Dez-2022 às 00:10
+-- Tempo de geração: 05-Dez-2022 às 17:49
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -101,7 +101,7 @@ CREATE TABLE `decoracoes` (
 --
 
 INSERT INTO `decoracoes` (`cod_decoracoes`, `descricao_decoracao`, `img_decoracao`, `temas_cod_tema`) VALUES
-(1, 'Kit Mundo Bita', '../Imgs_banco/desenho.jpg', 1),
+(1, 'Kit Mundo Bita', '../Imgs_banco/desenhos.jpg', 1),
 (2, 'Kit Mickey', '../Imgs_banco/disney.jpg', 2),
 (3, 'Kit Fazendinha 1', '../Imgs_banco/fazenda.jpg', 3),
 (4, 'Kit Praia 1', '../Imgs_banco/praia.jpg', 5),
@@ -138,7 +138,7 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`cod_empresa`, `nome_empresa`, `img_empresa`, `cnpj_empresa`, `gestores_cod_gestor`) VALUES
-(1, 'NandaFest', '../Imgs_banco/logo.jpg', '12.682.096/0001-02', 1);
+(1, 'NandaFest', '../Imgs_banco/logo.png', '12.682.096/0001-02', 1);
 
 -- --------------------------------------------------------
 

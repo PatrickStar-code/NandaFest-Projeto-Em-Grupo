@@ -9,6 +9,10 @@ include_once("./Classes/temas.class.php");
 //Iniciando sesão
 session_start();
 
+
+// Incluindo navbar
+include("./componentes/navbar.php");
+
 if (!isset($_SESSION["Temas"])) {
     $sql = "SELECT * FROM temas";
     $result = $conn->query($sql);
@@ -17,7 +21,8 @@ if (!isset($_SESSION["Temas"])) {
         // output data of each row
         while ($row = $result->fetch_assoc()) {
             $tema = new Tema($row["cod_tema"], $row["descricao_tema"], $row["img_tema"]);
-            $_SESSION["Temas"][$row["cod_tema"]] = $tema;
+            $cod = $row["cod_tema"];
+            $_SESSION["Temas"][$cod] = $tema;
         }
     } else {
         echo "deu ruim";
@@ -25,16 +30,12 @@ if (!isset($_SESSION["Temas"])) {
 }
 
 
-
-
-// Incluindo navbar
-include("./componentes/navbar.php");
 ?>
 
 
 <!-- Body -->
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <?php
         include("./componentes/card_temas.php");
         ?>

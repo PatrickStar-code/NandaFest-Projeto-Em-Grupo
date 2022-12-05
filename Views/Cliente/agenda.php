@@ -45,7 +45,7 @@ if (isset($_SESSION['msg'])) {
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
-                    <button type="button" class="close" data-bs- requireddismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -150,7 +150,7 @@ if (isset($_SESSION['msg'])) {
                     <input type="text" name="id_cliente" id="cliente" value="<?php echo $_SESSION["Login"]->cod ?> " style="display:none;">
 
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary btn-event" type="submit" name="btnadd" id="btnadd">Enviar</button>
+                        <button class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200" type="submit" name="btnadd" id="btnadd">Enviar</button>
                     </div>
                 </form>
             </div>

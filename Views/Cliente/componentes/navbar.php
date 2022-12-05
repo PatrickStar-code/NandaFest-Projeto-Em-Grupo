@@ -43,7 +43,7 @@
 	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
 		<a class="text-3xl font-bold leading-none" href="#">
 			<!-- Colocar logo -->
-			<img src="<?php echo $_SESSION["Empresa"]->img ?>" alt="">
+			<img src="<?php echo $_SESSION["Empresa"]->img ?>" alt="" style="width: 120px;top: -12px;position: absolute;">
 		</a>
 		<div class="lg:hidden">
 			<button class="navbar-burger flex items-center text-blue-600 p-3">
@@ -90,7 +90,7 @@
 				</div>
 				<ul class="py-1" aria-labelledby="user-menu-button">
 					<li>
-						<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Perfil</a>
+						<a href="./perfil.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Perfil</a>
 					</li>
 					<li>
 						<a href="./agenda.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Agenda</a>
@@ -109,7 +109,7 @@
         Botoes logar deslogar 
       -->
 
-			<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Registrar-se</a>
+			<a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="./cadastrar.php">Registrar-se</a>
 			<a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#" data-modal-toggle="authentication-modal">Logar</a>
 		<?php } ?>
 	</nav>
@@ -144,7 +144,7 @@
 				<!-- Botoes Menu Se Não estiver logado -->
 				<?php if (!isset($_SESSION["Login"])) { ?>
 					<div class="pt-6">
-						<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="#">Registrar-se</a>
+						<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="./cadastrar.php">Registrar-se</a>
 						<a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" data-modal-toggle="authentication-modal">Logar</a>
 					</div>
 					<p class="my-4 text-xs text-center text-gray-400">
@@ -154,6 +154,11 @@
 			</div>
 		</nav>
 	</div>
+
+	<button   id="topButton"
+        class="fixed z-10  p-3 bg-gray-100 rounded-full shadow-md bottom-10 right-10 animate-bounce">
+        <img src="../Imgs/icons8-whatsapp-48.png" alt="To aqui">
+    </button>
 
 	<!-- MODAL RESPONSAVEL PELO LOGIN -->
 	<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">

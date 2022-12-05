@@ -5,7 +5,7 @@
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
         x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
-        <img :src="image" alt="Image" class="absolute inset-0 z-10 h-full w-full object-cover opacity-70" />
+        <img :src="image" alt="Image" class="absolute inset-0 z-10 h-full w-full object-cover" />
         </figure>
     </template>
 
@@ -32,7 +32,7 @@
         Alpine.data('slider', () => ({
             currentIndex: 1,
             images: [
-                'https://source.unsplash.com/1600x900/?beach',
+                '../Imgs/carr.jpg',
                 'https://source.unsplash.com/1600x900/?cat',
                 'https://source.unsplash.com/1600x900/?dog',
                 'https://source.unsplash.com/1600x900/?lego',

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //defaultDate: '2019-04-12',
 
         // Definindo se editavel
-        editable: true,
+        // editable: true,
 
         eventLimit: true, // allow "more" link when too many events
 

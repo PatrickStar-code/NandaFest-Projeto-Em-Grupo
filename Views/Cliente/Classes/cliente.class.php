@@ -18,7 +18,7 @@
             $this -> em = $em;
             $this -> cel = $cel;
             $this -> cid = $cid;
-            $this->bairro = $cep;
+            $this->cep = $cep;
             $this->cpf=$cpf;
             $this->img=$img;
         }
