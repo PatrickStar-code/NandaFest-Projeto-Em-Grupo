@@ -96,7 +96,7 @@
 						<a href="./agenda.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Agenda</a>
 					</li>
 					<li>
-						<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Fale Conosco</a>
+						<a href="./chat.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Fale Conosco</a>
 					</li>
 					<li>
 						<a href="./deslogar.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deslogar</a>
@@ -156,7 +156,7 @@
 	</div>
 
 	<button   id="topButton"
-        class="fixed z-10  p-3 bg-gray-100 rounded-full shadow-md bottom-10 right-10 animate-bounce">
+        class="fixed z-10  p-3 bg-gray-300 rounded-full drop-shadow-xl bottom-10 right-10">
         <img src="../Imgs/icons8-whatsapp-48.png" alt="To aqui">
     </button>
 
@@ -185,7 +185,7 @@
 
 						<button type="submit" name="enviar" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Login</button>
 						<div class="text-sm font-medium text-gray-500 ">
-							Não esta cadastrado? <a href="./registro.php" class="text-blue-700 hover:underline ">Registre-se</a>
+							Não esta cadastrado? <a href="./cadastrar.php" class="text-blue-700 hover:underline ">Registre-se</a>
 						</div>
 					</form>
 				</div>
@@ -193,6 +193,11 @@
 		</div>
 	</div>
 
+	<!-- CHAT -->
+	<?php if(isset($_SESSION["Login"])){ ?>
+
+
+	<?php } ?>
 	<script>
 		// Burger menus
 		document.addEventListener('DOMContentLoaded', function() {
@@ -235,3 +240,4 @@
 			}
 		});
 	</script>
+

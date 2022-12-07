@@ -30,41 +30,49 @@ include("./componentes/navbar.php");
 
 
 
-<?php
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-?>
+<?php if (isset($_SESSION['msg'])) { ?>
+    <div class="container">
+        <?php echo $_SESSION['msg']; ?>
+    </div>
+<?php unset($_SESSION['msg']);
+} ?>
 <br>
+<center>
+    <h1 class="italic text-2xl">SUA AGENDA</h1>
+</center>
 <!-- Body Pagina -->
 <div id='calendar'></div>
 
 <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <dl class="row">
-                        <dt class="col-sm-3">ID do evento</dt>
-                        <dd class="col-sm-9" id="id"></dd>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <dl class="row">
+                    <dt class="col-sm-3">ID do evento</dt>
+                    <dd class="col-sm-9" id="id"></dd>
 
-                        <dt class="col-sm-3">Título do evento</dt>
-                        <dd class="col-sm-9" id="title"></dd>
+                    <dt class="col-sm-3">Título do evento</dt>
+                    <dd class="col-sm-9" id="title"></dd>
 
-                        <dt class="col-sm-3">Início do evento</dt>
-                        <dd class="col-sm-9" id="start"></dd>
+                    <dt class="col-sm-3">Início do evento</dt>
+                    <dd class="col-sm-9" id="start"></dd>
+                </dl>
+                <br>
+                <form action="detalhes.php" method="POST">
+                    <input type="text" name="id" id="id_input" style="display: none;">
 
-                    </dl>
-                </div>
+                    <button type="submit" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Ver Mais Detalhes</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
 
 
@@ -150,7 +158,7 @@ if (isset($_SESSION['msg'])) {
                     <input type="text" name="id_cliente" id="cliente" value="<?php echo $_SESSION["Login"]->cod ?> " style="display:none;">
 
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200" type="submit" name="btnadd" id="btnadd">Enviar</button>
+                        <button class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit" name="btnadd" id="btnadd">Enviar</button>
                     </div>
                 </form>
             </div>
@@ -159,8 +167,8 @@ if (isset($_SESSION['msg'])) {
     </div>
     <!-- Modal -->
 
-    
-        <!-- Fim Body -->
+
+    <!-- Fim Body -->
 
 
-        <?php include_once("../top_bot/bot.php") ?>
+    <?php include_once("../top_bot/bot.php") ?>

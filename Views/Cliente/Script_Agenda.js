@@ -29,6 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#visualizar #id').text(info.event.id);
             $('#visualizar #title').text(info.event.title);
             $('#visualizar #start').text(info.event.start.toLocaleString());
+            $('#visualizar #cidade').val(info.event.cidade);
+
+            $('#visualizar #id_input').val(info.event.id);
+
             $('#visualizar').modal('show');
         },
 

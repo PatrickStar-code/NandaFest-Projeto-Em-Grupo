@@ -39,16 +39,12 @@
     
 
     
-    $id = $_GET["id"];
-    $tema = $_GET["tema"];
- 
+   
     ?>
-<div class="container">
-    <br>
-  <h1 class="text-4xl italic text-center">Decorações de <?php echo $tema?></h1>
-    <div class="row .justify-content-center">
-        <?php include("./componentes/listar.php") ?>
-    </div>
-</div>
+
+
+<?php 
+    // include("./componentes/chat.php")
+?>
 
 <?php include_once("../top_bot/bot.php") ?>

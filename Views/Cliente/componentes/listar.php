@@ -3,7 +3,7 @@ include_once("../conexao.php");
 ?>
 
 <style>
-  .card {
+ .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 40%;
@@ -31,5 +31,6 @@ while ($row = $result->fetch_assoc()) {
       <span href="" class="block text-2xl font-bold text-gray-800 " tabindex="0" role="link"><?php echo $row["descricao_decoracao"] ?></span>
     </div>
   </div>
+
 
 <?php } ?>

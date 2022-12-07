@@ -161,7 +161,7 @@ $_SESSION["Login"]->cpf = $cpf;
                     <div class="col-md-12"><label class="labels">Celular</label><input type="text" name="cel" class="form-control" placeholder="Digite o seu n° de celular!" value="<?php echo $_SESSION["Login"]->cel ?>"></div>
                     <div class="col-md-12"><label class="labels">Cidade</label><input type="text" name="cid" class="form-control" placeholder="Escreva o nome da sua cidade!" value="<?php echo $_SESSION["Login"]->cid ?>"></div>
                     <div class="col-md-12"><label class="labels">CEP</label><input type="text" name="cep" class="form-control" placeholder="Escreva o seu CEP!" value="<?php echo $_SESSION["Login"]->cep ?>"></div>
-                    <div class="col-md-12"><label class="labels">CPF</label><input type="text" name="cpf" class="form-control" placeholder="Escreva o seu CPF!" value="<?php echo $_SESSION["Login"]->cpf ?>"></div>
+                    <div class="col-md-12"><label class="labels">CPF</label><input id="cpf" type="text" name="cpf" class="form-control" placeholder="Escreva o seu CPF!" value="<?php echo $_SESSION["Login"]->cpf ?>"></div>
                 </div>
                 <div class="row mt-2" id="alterar">
                         <div class="col-md-12"><label class="labels">Name Completo</label><span class="form-control"><?php echo $_SESSION["Login"]->nome ?></span></div>
@@ -178,6 +178,10 @@ $_SESSION["Login"]->cpf = $cpf;
     </div>
 </div>
 </div>
+
+<script>
+    $("#cpf").mask("000.000.000-00")
+</script>
 <!-- fim body -->
 
 <?php include_once("../top_bot/bot.php") ?>
