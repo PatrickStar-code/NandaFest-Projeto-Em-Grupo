@@ -39,6 +39,13 @@ if ($result->num_rows > 0) {
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col mb-3">
+                                        <p class="small text-muted mb-1">Funcionario Responsavel</p>
+                                        <p><?php $id_func = $row["funcionarios_cod_funcionario"];echo $_SESSION["func"][$id]->nome ?></p>
+                                    </div>
+                                </div>
+
                                 <br>
                                 <p class="small text-muted mb-1">DECORAÇÕES SOLICITADAS</p>
                                 <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
@@ -60,25 +67,27 @@ if ($result->num_rows > 0) {
                                     } else echo "Erro"; ?>
                                 </div>
 
+
+
                                 <div class="row my-4">
                                     <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
                                         <p class="lead fw-bold mb-0" style="color: blue;">R$ <?php echo $row["valor_pedido"] ?></p>
                                     </div>
                                 </div>
 
-                                <p class="lead fw-bold mb-4 pb-2" style="color: blue;">Status</p>
-
                                 <div class="row">
+                                    <p class="lead fw-bold mb-4 pb-2" style="color: blue;">Status</p>
+
                                     <div class="col-lg-12">
 
                                         <div class="horizontal-timeline">
 
                                             <ul class="list-inline items d-flex justify-content-between">
                                                 <li class="list-inline-item items-list">
-                                                    <?php if($row["status_pedido"] == "Pendente" ){?>
-                                                    <p class="py-1 px-2 rounded text-white" style="background-color: red;"><?php echo $row["status_pedido"] ?></p>
-                                                    <?php }else{?>
-                                                        <p class="py-1 px-2 rounded text-white" style="background-color: green;">Ordered</p>
+                                                    <?php if ($row["status_pedido"] == "Pendente") { ?>
+                                                        <p class="py-1 px-2 rounded text-white" style="background-color: red;"><?php echo $row["status_pedido"] ?></p>
+                                                    <?php } else { ?>
+                                                        <p class="py-1 px-2 rounded text-white" style="background-color: green;"><?php echo $row["status_pedido"] ?></p>
                                                     <?php } ?>
                                                 </li>
                                             </ul>
@@ -87,6 +96,7 @@ if ($result->num_rows > 0) {
 
                                     </div>
                                 </div>
+
 
                                 <p class="mt-4 pt-2 mb-0">Precisa de ajuda ? <a href="./chat.php" style="color:blue;">Contate-nos</a></p>
 

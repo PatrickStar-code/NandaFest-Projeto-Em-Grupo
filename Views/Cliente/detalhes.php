@@ -7,6 +7,8 @@ include_once("../top_bot/top.php");
 include_once("./Classes/empresa.class.php");
 include_once("./Classes/dec.class.php");
 include_once("./Classes/cliente.class.php");
+include_once("./Classes/func.class.php");
+
 
 //Iniciando sesão
 session_start();
@@ -51,6 +53,19 @@ if (!isset($_SESSION["dec"])) {
     }
 }
 
+
+if (!isset($_SESSION["func"])) {
+    $sql3 = "SELECT * FROM funcionarios";
+    $result3 = $conn->query($sql3);
+    while ($row3 = $result3->fetch_assoc()) {
+        $id = $row3["cod_funcionario"]; 
+        $desc = $row3["nome_funcionario"];
+        $img = $row3["img_funcionario"];
+
+        $dec = new Func($id, $desc, $img);
+        $_SESSION["func"][$id] = $dec;
+    }
+}
 
 
 
