@@ -13,7 +13,7 @@ session_start();
 // Incluindo navbar
 include("./componentes/navbar.php");
 
-if(isset($_POST["mandei"])){
+if (isset($_POST["mandei"])) {
     $nome = $_POST["nome"];
     $tel = $_POST["tel"];
     $em = $_POST["em"];
@@ -38,14 +38,13 @@ if(isset($_POST["mandei"])){
       <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
   </button>
 </div>';
-$_SESSION["Login"]->nome = $nome;
-$_SESSION["Login"]->tel = $tel;
-$_SESSION["Login"]->em = $em;
-$_SESSION["Login"]->cel = $cel;
-$_SESSION["Login"]->cid = $cid;
-$_SESSION["Login"]->cep = $cep;
-$_SESSION["Login"]->cpf = $cpf;
-
+        $_SESSION["Login"]->nome = $nome;
+        $_SESSION["Login"]->tel = $tel;
+        $_SESSION["Login"]->em = $em;
+        $_SESSION["Login"]->cel = $cel;
+        $_SESSION["Login"]->cid = $cid;
+        $_SESSION["Login"]->cep = $cep;
+        $_SESSION["Login"]->cpf = $cpf;
     } else {
         echo '<div id="toast-warning" class="flex items-center p-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
   <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
@@ -141,7 +140,10 @@ $_SESSION["Login"]->cpf = $cpf;
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="<?php echo $_SESSION["Login"]->img ?>" alt="Sem Imagem Cadastrada">
+                <img class="rounded-circle mt-5" width="150px" src="<?php if ($_SESSION["Login"]->img == null) {
+                                                                        echo 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEn1obslNphDThy9T6_yi-ClXQbXlQeq6qlYhWTU0Pm8Pp6TAiJJbthriUTHueCFBeYFM&usqp=CAU';
+                                                                    } else echo $_SESSION["Login"]->img
+                                                                    ?> ?>" alt="Sem Imagem Cadastrada">
                 <span class="font-weight-bold"><?php echo $_SESSION["Login"]->nome ?></span>
                 <span class="text-black-50"><?php echo $_SESSION["Login"]->em ?></span><span> </span>
             </div>
@@ -151,19 +153,19 @@ $_SESSION["Login"]->cpf = $cpf;
                 <div class="d-flex justify-content-between align-items-center mb-3">
                 </div>
                 <form action="" method="POST">
-                <button type="button" class="profile-edit-btn" id="btn-editar">Editar</button>
-                <button type="submit" name="mandei" class="profile-edit-btn" id="btn-submit" style="display: none;">Alterar</button>
+                    <button type="button" class="profile-edit-btn" id="btn-editar">Editar</button>
+                    <button type="submit" name="mandei" class="profile-edit-btn" id="btn-submit" style="display: none;">Alterar</button>
 
-                <div class="row mt-2" style="display:none;" id="editar">
-                    <div class="col-md-12"><label class="labels">Name Completo</label><input type="text" name="nome" class="form-control" placeholder="Escreva seu nome completo!" value="<?php echo $_SESSION["Login"]->nome ?>"></div>
-                    <div class="col-md-12"><label class="labels">Telefone</label><input type="text" name="tel" class="form-control" placeholder="Digite o seu telefone fixo!" value="<?php echo $_SESSION["Login"]->tel ?>"></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input type="text" name="em" class="form-control" placeholder="Escreva o seu email!" value="<?php echo $_SESSION["Login"]->em ?>"></div>
-                    <div class="col-md-12"><label class="labels">Celular</label><input type="text" name="cel" class="form-control" placeholder="Digite o seu n° de celular!" value="<?php echo $_SESSION["Login"]->cel ?>"></div>
-                    <div class="col-md-12"><label class="labels">Cidade</label><input type="text" name="cid" class="form-control" placeholder="Escreva o nome da sua cidade!" value="<?php echo $_SESSION["Login"]->cid ?>"></div>
-                    <div class="col-md-12"><label class="labels">CEP</label><input type="text" name="cep" class="form-control" placeholder="Escreva o seu CEP!" value="<?php echo $_SESSION["Login"]->cep ?>"></div>
-                    <div class="col-md-12"><label class="labels">CPF</label><input id="cpf" type="text" name="cpf" class="form-control" placeholder="Escreva o seu CPF!" value="<?php echo $_SESSION["Login"]->cpf ?>"></div>
-                </div>
-                <div class="row mt-2" id="alterar">
+                    <div class="row mt-2" style="display:none;" id="editar">
+                        <div class="col-md-12"><label class="labels">Name Completo</label><input type="text" name="nome" class="form-control" placeholder="Escreva seu nome completo!" value="<?php echo $_SESSION["Login"]->nome ?>"></div>
+                        <div class="col-md-12"><label class="labels">Telefone</label><input type="text" name="tel" class="form-control" placeholder="Digite o seu telefone fixo!" value="<?php echo $_SESSION["Login"]->tel ?>"></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text" name="em" class="form-control" placeholder="Escreva o seu email!" value="<?php echo $_SESSION["Login"]->em ?>"></div>
+                        <div class="col-md-12"><label class="labels">Celular</label><input type="text" name="cel" class="form-control" placeholder="Digite o seu n° de celular!" value="<?php echo $_SESSION["Login"]->cel ?>"></div>
+                        <div class="col-md-12"><label class="labels">Cidade</label><input type="text" name="cid" class="form-control" placeholder="Escreva o nome da sua cidade!" value="<?php echo $_SESSION["Login"]->cid ?>"></div>
+                        <div class="col-md-12"><label class="labels">CEP</label><input type="text" name="cep" class="form-control" placeholder="Escreva o seu CEP!" value="<?php echo $_SESSION["Login"]->cep ?>"></div>
+                        <div class="col-md-12"><label class="labels">CPF</label><input id="cpf" type="text" name="cpf" class="form-control" placeholder="Escreva o seu CPF!" value="<?php echo $_SESSION["Login"]->cpf ?>"></div>
+                    </div>
+                    <div class="row mt-2" id="alterar">
                         <div class="col-md-12"><label class="labels">Name Completo</label><span class="form-control"><?php echo $_SESSION["Login"]->nome ?></span></div>
                         <div class="col-md-12"><label class="labels">Telefone</label><span class="form-control"><?php echo $_SESSION["Login"]->tel ?></span></div>
                         <div class="col-md-12"><label class="labels">Email</label><span class="form-control"><?php echo $_SESSION["Login"]->em ?></span></div>
@@ -171,8 +173,8 @@ $_SESSION["Login"]->cpf = $cpf;
                         <div class="col-md-12"><label class="labels">Cidade</label><span class="form-control"><?php echo $_SESSION["Login"]->cid ?></span></div>
                         <div class="col-md-12"><label class="labels">CEP</label><span class="form-control"><?php echo $_SESSION["Login"]->cep ?></span></div>
                         <div class="col-md-12"><label class="labels">CPF</label><span class="form-control"><?php echo $_SESSION["Login"]->cpf ?></span></div>
-                </div>
-            </form>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@
  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script> 
 
+
   <!-- AlpineJs -->
   <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 <!-- ajax -->
