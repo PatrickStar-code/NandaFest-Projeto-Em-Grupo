@@ -53,7 +53,7 @@
             </div>
 
             <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-                <img class="w-full h-full lg:max-w-3xl" src="../Imgs/undraw_Partying_re_at7f.png" alt="Catalogue-pana.svg">
+                <img class="w-full h-full lg:max-w-3xl" src="../Imgs/celebration-animate.svg" alt="Catalogue-pana.svg">
             </div>
         </div>
     </div>

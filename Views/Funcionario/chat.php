@@ -11,6 +11,7 @@ session_start();
 
 ?>
 
+<link rel="stylesheet" href="./Components/sidebar.css">
 <!-- Body -->
 <!-- component -->
 
@@ -150,22 +151,26 @@ session_start();
 
                     <!-- Links -->
                     <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
-                        <a href="./home.php" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
-                            <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
-                              <img src="../Imgs/casa.gif" alt="" class="w-6 h-6" >
+                    <a href="./home.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
+                            <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
+                            <img src="../Imgs/casa.gif" alt="" class="w-6 h-6" >
                             </span>
                             <span>Home</span>
                         </a>
-
+                                                            
+                   
                         <a href="./agendamentos.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
                             <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
-                                <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
+                            <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
                             </span>
-                            <span>Agendamentos</span>
+                            <span>Agendamento</span>
                         </a>
 
-                        <a href="./chat.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
-                            <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
+
+                        
+
+                        <a href="./chat.php" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
+                            <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
                                <img src="../Imgs/chat.gif" alt="" class="w-6 h-6" >
                             </span>
                             <span>Chat</span>
@@ -258,15 +263,12 @@ session_start();
           </a> -->
                     </div>
             </header>
-            <?php include("./Components/cards.php") ?>
-
             <div class="flex flex-1">
-              
+
                 <!-- Main -->
                 <main class="flex items-center justify-center flex-1 px-4 py-8">
                     <!-- Conteudo Aqui -->
 
-                    <?php include("./Components/hero.php") ?>
                     <!-- Fim Conteudo -->
                     <!-- Content -->
                 </main>

@@ -42,7 +42,7 @@ if ($result->num_rows > 0) {
                                 <div class="row">
                                     <div class="col mb-3">
                                         <p class="small text-muted mb-1">Funcionario Responsavel</p>
-                                        <p><?php $id_func = $row["funcionarios_cod_funcionario"];echo $_SESSION["func"][$id]->nome ?></p>
+                                        <p><?php $id_func = $row["funcionarios_cod_funcionario"];echo $_SESSION["func"][$id_func]->nome ?></p>
                                     </div>
                                 </div>
 

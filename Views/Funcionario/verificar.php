@@ -11,13 +11,27 @@ session_start();
 
 ?>
 
+<script>
+    $(document).ready( function () {
+    $('#table').DataTable({
+    "language":{
+        url:"//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
+    },
+    ordering:  false,
+    "pageLength": 10,
+    "lengthChange": false,
+    "info": false
+
+    });
+} );
+</script>
 <!-- Body -->
 <!-- component -->
 
 
 <!-- component -->
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
-    <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+    <div class="flex h-full antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
 
         <!-- Loading screen -->
         <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-indigo-800">
@@ -49,12 +63,12 @@ session_start();
                 <div class="relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
                     <button @click="isOpen = !isOpen; $nextTick(() => {isOpen ? $refs.userMenu.focus() : null})" class="transition-opacity rounded-lg opacity-80 hover:opacity-100 focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-white focus:ring-offset-2">
                         <img class="w-8 h-8 rounded-lg shadow-md" src="<?php
-                                                                            if ($_SESSION["login"]->img == null) {
-                                                                                echo 'https://static.vecteezy.com/ti/vetor-gratis/p1/1505042-empregado-icone-gratis-vetor.jpg';
-                                                                            } else {
-                                                                                echo $_SESSION["login"]->img;
-                                                                            }
-                                                                            ?>" alt="Ahmed Kamel" />
+                                                                        if ($_SESSION["login"]->img == null) {
+                                                                            echo 'https://static.vecteezy.com/ti/vetor-gratis/p1/1505042-empregado-icone-gratis-vetor.jpg';
+                                                                        } else {
+                                                                            echo $_SESSION["login"]->img;
+                                                                        }
+                                                                        ?>" alt="Ahmed Kamel" />
                         <span class="sr-only">User menu</span>
                     </button>
                     <div x-show="isOpen" @click.away="isOpen = false" @keydown.escape="isOpen = false" x-ref="userMenu" tabindex="-1" class="absolute w-48 py-1 mt-2 origin-bottom-left bg-white rounded-md shadow-lg left-10 bottom-14 focus:outline-none" role="menu" aria-orientation="vertical" aria-label="user menu">
@@ -150,23 +164,27 @@ session_start();
 
                     <!-- Links -->
                     <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
-                        <a href="./home.php" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
-                            <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
-                              <img src="../Imgs/casa.gif" alt="" class="w-6 h-6" >
+                        <a href="./home.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
+                            <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
+                                <img src="../Imgs/casa.gif" alt="" class="w-6 h-6">
                             </span>
                             <span>Home</span>
                         </a>
+
 
                         <a href="./agendamentos.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
                             <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
                                 <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
                             </span>
-                            <span>Agendamentos</span>
+                            <span>Agendamento</span>
                         </a>
+
+
+
 
                         <a href="./chat.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
                             <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
-                               <img src="../Imgs/chat.gif" alt="" class="w-6 h-6" >
+                                <img src="../Imgs/chat.gif" alt="" class="w-6 h-6">
                             </span>
                             <span>Chat</span>
                         </a>
@@ -258,15 +276,12 @@ session_start();
           </a> -->
                     </div>
             </header>
-            <?php include("./Components/cards.php") ?>
-
             <div class="flex flex-1">
-              
-                <!-- Main -->
-                <main class="flex items-center justify-center flex-1 px-4 py-8">
-                    <!-- Conteudo Aqui -->
 
-                    <?php include("./Components/hero.php") ?>
+                <!-- Main -->
+                <main class="flex items-center justify-center flex-1">
+                    <!-- Conteudo Aqui -->
+                    <?php include("./Components/vizualizar.php") ?>
                     <!-- Fim Conteudo -->
                     <!-- Content -->
                 </main>

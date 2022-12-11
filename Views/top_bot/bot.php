@@ -16,5 +16,7 @@
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 
+<!-- Data Table -->
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
 </html>

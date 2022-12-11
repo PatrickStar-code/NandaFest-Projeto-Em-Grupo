@@ -16,7 +16,7 @@ session_start();
 
 
 //Clientes
-if(isset($_SESSION["Clientes"])){
+if(!isset($_SESSION["Clientes"])){
     $sql3 = "SELECT * FROM clientes";
     $result3 = $conn->query($sql3);
 
@@ -24,7 +24,7 @@ if(isset($_SESSION["Clientes"])){
         // output data of each row
         while ($row3 = $result3->fetch_assoc()) {
             $cod = $row3["cod_cliente"];
-            $nome = $row3["nome_clliente"];
+            $nome = $row3["nome_cliente"];
             $tel = $row3["telefone_cliente"];
             $em = $row3["email_cliente"];
             $cel = $row3["celular_cliente"];
@@ -35,7 +35,6 @@ if(isset($_SESSION["Clientes"])){
             $cliente =  new Cliente($cod,$nome,$tel,$em,$cel,$cid,$cep,$cpf,$img);
             $_SESSION["Clientes"][$cod] = $cliente;
         }
- 
     } else {
         echo "deu ruim";
     }

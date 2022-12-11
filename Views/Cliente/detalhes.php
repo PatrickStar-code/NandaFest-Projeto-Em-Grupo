@@ -68,7 +68,6 @@ if (!isset($_SESSION["func"])) {
 }
 
 
-
 $id = $_POST["id"];
 
 
