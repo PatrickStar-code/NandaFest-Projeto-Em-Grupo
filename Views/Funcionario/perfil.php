@@ -11,9 +11,102 @@ session_start();
 
 ?>
 
-<link rel="stylesheet" href="./Components/sidebar.css">
 <!-- Body -->
 <!-- component -->
+<style>
+    .emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+</style>
 
 
 <!-- component -->
@@ -151,26 +244,22 @@ session_start();
 
                     <!-- Links -->
                     <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
-                    <a href="./home.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
-                            <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
-                            <img src="../Imgs/casa.gif" alt="" class="w-6 h-6" >
+                        <a href="./home.php" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
+                            <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
+                              <img src="../Imgs/casa.gif" alt="" class="w-6 h-6" >
                             </span>
                             <span>Home</span>
                         </a>
-                                                            
-                   
+
                         <a href="./agendamentos.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
                             <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
-                            <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
+                                <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
                             </span>
-                            <span>Agendamento</span>
+                            <span>Agendamentos</span>
                         </a>
 
-
-                        
-
-                        <a href="./chat.php" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
-                            <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
+                        <a href="./chat.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
+                            <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
                                <img src="../Imgs/chat.gif" alt="" class="w-6 h-6" >
                             </span>
                             <span>Chat</span>
@@ -263,12 +352,13 @@ session_start();
           </a> -->
                     </div>
             </header>
-            <div class="flex flex-1">
 
+            <div class="flex flex-1">
+              
                 <!-- Main -->
                 <main class="flex items-center justify-center flex-1 px-4 py-8">
                     <!-- Conteudo Aqui -->
-
+<?php include("./Components/perfil.php") ?>
                     <!-- Fim Conteudo -->
                     <!-- Content -->
                 </main>
