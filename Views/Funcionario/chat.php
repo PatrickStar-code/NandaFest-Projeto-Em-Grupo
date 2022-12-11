@@ -8,6 +8,26 @@ include_once("./Classes/dec.class.php");
 include_once("./Classes/cliente.class.php");
 
 session_start();
+if (isset($_GET["enviar_f"])) {
+    $cod_cliente = $_GET["id_cliente"];
+    $msg = $_GET["message"];
+    $sql = "INSERT INTO chat (mensagem, PARA,clientes_cod_cliente )
+    VALUES ('$msg', 'Cliente', '$cod_cliente')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo '<div id="toast-success" class="flex fixed-bottom items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+    <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+        <span class="sr-only">Check icon</span>
+    </div>
+    <div class="ml-3 text-sm font-normal">Mensagem Enviada.</div>
+    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+</div>';
+    }
+}
 
 ?>
 
@@ -20,10 +40,10 @@ session_start();
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
     <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
 
-        <!-- Loading screen -->
+        <!-- Loading screen
         <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-indigo-800">
             Loading.....
-        </div>
+        </div> -->
 
         <!-- Sidebar -->
         <div class="flex flex-shrink-0 transition-all">
@@ -50,12 +70,12 @@ session_start();
                 <div class="relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
                     <button @click="isOpen = !isOpen; $nextTick(() => {isOpen ? $refs.userMenu.focus() : null})" class="transition-opacity rounded-lg opacity-80 hover:opacity-100 focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-white focus:ring-offset-2">
                         <img class="w-8 h-8 rounded-lg shadow-md" src="<?php
-                                                                            if ($_SESSION["login"]->img == null) {
-                                                                                echo 'https://static.vecteezy.com/ti/vetor-gratis/p1/1505042-empregado-icone-gratis-vetor.jpg';
-                                                                            } else {
-                                                                                echo $_SESSION["login"]->img;
-                                                                            }
-                                                                            ?>" alt="Ahmed Kamel" />
+                                                                        if ($_SESSION["login"]->img == null) {
+                                                                            echo 'https://static.vecteezy.com/ti/vetor-gratis/p1/1505042-empregado-icone-gratis-vetor.jpg';
+                                                                        } else {
+                                                                            echo $_SESSION["login"]->img;
+                                                                        }
+                                                                        ?>" alt="Ahmed Kamel" />
                         <span class="sr-only">User menu</span>
                     </button>
                     <div x-show="isOpen" @click.away="isOpen = false" @keydown.escape="isOpen = false" x-ref="userMenu" tabindex="-1" class="absolute w-48 py-1 mt-2 origin-bottom-left bg-white rounded-md shadow-lg left-10 bottom-14 focus:outline-none" role="menu" aria-orientation="vertical" aria-label="user menu">
@@ -151,27 +171,27 @@ session_start();
 
                     <!-- Links -->
                     <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
-                    <a href="./home.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
+                        <a href="./home.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
                             <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
-                            <img src="../Imgs/casa.gif" alt="" class="w-6 h-6" >
+                                <img src="../Imgs/casa.gif" alt="" class="w-6 h-6">
                             </span>
                             <span>Home</span>
                         </a>
-                                                            
-                   
+
+
                         <a href="./agendamentos.php" class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white">
                             <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white">
-                            <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
+                                <img src="../Imgs/caderno.gif" class="w-6 h-6" alt="">
                             </span>
                             <span>Agendamento</span>
                         </a>
 
 
-                        
+
 
                         <a href="./chat.php" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
                             <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
-                               <img src="../Imgs/chat.gif" alt="" class="w-6 h-6" >
+                                <img src="../Imgs/chat.gif" alt="" class="w-6 h-6">
                             </span>
                             <span>Chat</span>
                         </a>
@@ -268,7 +288,7 @@ session_start();
                 <!-- Main -->
                 <main class="flex items-center justify-center flex-1 px-4 py-8">
                     <!-- Conteudo Aqui -->
-
+                    <?php include("./Components/chat.php") ?>
                     <!-- Fim Conteudo -->
                     <!-- Content -->
                 </main>

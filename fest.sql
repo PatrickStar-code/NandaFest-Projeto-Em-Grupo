@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Dez-2022 às 17:49
+-- Tempo de geração: 11-Dez-2022 às 20:27
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -50,8 +50,9 @@ CREATE TABLE `agendamentos` (
 
 CREATE TABLE `chat` (
   `idchat` int(11) NOT NULL,
-  `mensagem` varchar(100) NOT NULL,
-  `dh_mensagem` datetime NOT NULL,
+  `mensagem` text NOT NULL,
+  `PARA` varchar(200) NOT NULL,
+  `dh_mensagem` timestamp NOT NULL DEFAULT current_timestamp(),
   `clientes_cod_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
