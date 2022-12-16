@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
                             </a>
                         </p>
                         <a href="./agendamentos.php"><button type="button" title="Submit" class="block w-full py-3 px-6 text-center rounded-xl transition bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:bg-indigo-600">
-                                Retorna Aos Agendamentos
+                                Retornar Aos Agendamentos
                             </button></a>
                     </div>
                 </div>

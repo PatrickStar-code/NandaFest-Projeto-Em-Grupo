@@ -38,25 +38,25 @@
                         <nav aria-label="Footer Navigation - Services" class="mt-6">
                             <ul class="space-y-4 text-sm">
                                 <li>
-                                    <a href="#" class="text-gray-700 transition hover:opacity-75">
+                                    <a href="./sobre_nos.php" class="text-gray-700 transition hover:opacity-75">
                                         Quem Somos
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-gray-700 transition hover:opacity-75">
+                                    <a href="./sobre_nos.php"class="text-gray-700 transition hover:opacity-75">
                                         Onde Estamos
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-gray-700 transition hover:opacity-75">
+                                    <a href="./sobre_nos.php" class="text-gray-700 transition hover:opacity-75">
                                         Sobre Nós
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-gray-700 transition hover:opacity-75">
+                                    <a href="./sobre_nos.php" class="text-gray-700 transition hover:opacity-75">
                                         Nossa Empressa
                                     </a>
                                 </li>

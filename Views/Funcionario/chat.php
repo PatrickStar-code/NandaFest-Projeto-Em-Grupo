@@ -31,19 +31,19 @@ if (isset($_GET["enviar_f"])) {
 
 ?>
 
-<link rel="stylesheet" href="./Components/sidebar.css">
+
 <!-- Body -->
 <!-- component -->
 
 
 <!-- component -->
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
-    <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+    <div class="flex h-full antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
 
-        <!-- Loading screen
+        <!-- Loading screen -->
         <div x-ref="loading" class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-indigo-800">
             Loading.....
-        </div> -->
+        </div>
 
         <!-- Sidebar -->
         <div class="flex flex-shrink-0 transition-all">
@@ -283,12 +283,17 @@ if (isset($_GET["enviar_f"])) {
           </a> -->
                     </div>
             </header>
+
             <div class="flex flex-1">
+
+            <?php include("./Components/chat.php") ?>
+
+
 
                 <!-- Main -->
                 <main class="flex items-center justify-center flex-1 px-4 py-8">
                     <!-- Conteudo Aqui -->
-                    <?php include("./Components/chat.php") ?>
+            
                     <!-- Fim Conteudo -->
                     <!-- Content -->
                 </main>

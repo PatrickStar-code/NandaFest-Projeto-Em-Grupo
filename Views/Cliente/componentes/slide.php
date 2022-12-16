@@ -33,10 +33,9 @@
             currentIndex: 1,
             images: [
                 '../Imgs/carr.jpg',
-                'https://source.unsplash.com/1600x900/?cat',
-                'https://source.unsplash.com/1600x900/?dog',
-                'https://source.unsplash.com/1600x900/?lego',
-                'https://source.unsplash.com/1600x900/?textures&patterns'
+                '../Imgs/carr2.jpg',
+                '../Imgs/carr3.jpg',
+                '../Imgs/carr4.jpg'
             ],
             back() {
                 if (this.currentIndex > 1) {

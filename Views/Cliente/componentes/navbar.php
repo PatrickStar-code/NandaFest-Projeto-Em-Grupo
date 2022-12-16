@@ -41,7 +41,7 @@
 	}
 	?>
 	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
-		<a class="text-3xl font-bold leading-none" href="#">
+		<a class="text-3xl font-bold leading-none" href="./index.php">
 			<!-- Colocar logo -->
 			<img src="<?php echo $_SESSION["Empresa"]->img ?>" alt="" style="width: 120px;top: -12px;position: absolute;">
 		</a>

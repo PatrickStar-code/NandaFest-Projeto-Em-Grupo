@@ -10,7 +10,7 @@
 			<br>
 			</p>
 			<div class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				<a rel="noopener noreferrer" href="./agendamentos.php" class="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Agendamentos</a>
+				<a rel="noopener noreferrer" href="./agendamentos.php" class="px-8 py-3 text-lg font-semibold rounded bg-violet-600 text-gray-900">Agendamentos</a>
 				<a rel="noopener noreferrer" href="./chat.php" class="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100">Chat</a>
 			</div>
 		</div>

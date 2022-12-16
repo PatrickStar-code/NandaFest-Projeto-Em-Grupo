@@ -14,6 +14,11 @@ session_start();
 <!-- Body -->
 <!-- component -->
 
+<style>
+    body{
+        overflow: hidden;
+    }
+</style>
 
 <!-- component -->
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
@@ -260,17 +265,15 @@ session_start();
             </header>
             <?php include("./Components/cards.php") ?>
 
-            <div class="flex flex-1">
-              
-                <!-- Main -->
-                <main class="flex items-center justify-center flex-1 px-4 py-8">
+            <!-- Main -->
+            <main class="flex items-center justify-center flex-1 px-4 py-8">
                     <!-- Conteudo Aqui -->
 
                     <?php include("./Components/hero.php") ?>
                     <!-- Fim Conteudo -->
                     <!-- Content -->
                 </main>
-            </div>
+
         </div>
     </div>
 
