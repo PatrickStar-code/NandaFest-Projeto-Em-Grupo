@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
                                 <span class="font-semibold"><?php echo $row["dthr_pedido"] ?></span>
                             </a>
                         </p>
-                        <a href="./agendamentos.php"><button type="button" title="Submit" class="block w-full py-3 px-6 text-center rounded-xl transition bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:bg-indigo-600">
+                        <a href="./agendamentos.php"><button type="button" title="Submit" class="block w-full py-3 px-6 text-center rounded-xl transition bg-gray-600 hover:bg-gray-700 active:bg-purple-800 focus:bg-indigo-600 text-white">
                                 Retornar Aos Agendamentos
                             </button></a>
                     </div>
