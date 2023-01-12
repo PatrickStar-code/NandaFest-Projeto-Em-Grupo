@@ -160,10 +160,10 @@ if (isset($_POST["mandei"])) {
                         <div class="col-md-12"><label class="labels">Name Completo</label><input  required  type="text" name="nome" class="form-control" placeholder="Escreva seu nome completo!" value="<?php echo $_SESSION["Login"]->nome ?>"></div>
                         <div class="col-md-12"><label class="labels">Telefone</label><input required  type="text" name="tel" class="form-control" placeholder="Digite o seu telefone fixo!" value="<?php echo $_SESSION["Login"]->tel ?>"></div>
                         <div class="col-md-12"><label class="labels">Email</label><input required type="text" name="em" class="form-control" placeholder="Escreva o seu email!" value="<?php echo $_SESSION["Login"]->em ?>"></div>
-                        <div class="col-md-12"><label class="labels">Celular</label><input required type="text" name="cel" class="form-control" placeholder="Digite o seu n° de celular!" value="<?php echo $_SESSION["Login"]->cel ?>"></div>
+                        <div class="col-md-12"><label class="labels">Celular</label><input  type="text" name="cel" class="form-control" placeholder="Digite o seu n° de celular!" value="<?php echo $_SESSION["Login"]->cel ?>"></div>
                         <div class="col-md-12"><label class="labels">Cidade</label><input required type="text" name="cid" class="form-control" placeholder="Escreva o nome da sua cidade!" value="<?php echo $_SESSION["Login"]->cid ?>"></div>
                         <div class="col-md-12"><label class="labels">CEP</label><input required type="text" name="cep" class="form-control" placeholder="Escreva o seu CEP!" value="<?php echo $_SESSION["Login"]->cep ?>"></div>
-                        <div class="col-md-12"><label class="labels">CPF</label><input required id="cpf" type="text" name="cpf" class="form-control" placeholder="Escreva o seu CPF!" value="<?php echo $_SESSION["Login"]->cpf ?>"></div>
+                        <div class="col-md-12"><label class="labels">CPF</label><input  id="cpf" type="text" name="cpf" class="form-control" placeholder="Escreva o seu CPF!" value="<?php echo $_SESSION["Login"]->cpf ?>"></div>
                     </div>
                     <div class="row mt-2" id="alterar">
                         <div class="col-md-12"><label class="labels">Name Completo</label><span class="form-control"><?php echo $_SESSION["Login"]->nome ?></span></div>
