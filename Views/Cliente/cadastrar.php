@@ -2,8 +2,6 @@
 //Head
 include_once("../top_bot/top.php");
 
-
-
 //Classe empresa
 include_once("./Classes/empresa.class.php");
 include_once("./Classes/cliente.class.php");
@@ -33,49 +31,10 @@ if (!isset($_SESSION["Empresa"])) {
 }
 
 
-if (isset($_POST["cadastro"])) {
-    $password = $_POST["password"];
-    $repeatpassword = $_POST["tpassword"];
-    if ($password == $repeatpassword) {
-        $nome_cliente = $_POST["nome"];
-        $email_cliente = $_POST["email"];
-        $telefone_cliente = $_POST["telefone"];
-        $cidade_cliente = $_POST["cidade"];
-        $cep_cliente = $_POST["cep"];
-        $login_cliente = $_POST["username"];
-        $senha_cliente = $_POST["password"];
 
-
-        $sql = "INSERT INTO clientes (nome_cliente,telefone_cliente,email_cliente,cidade_cliente,cep_cliente,login_cliente,senha_cliente)VALUES ('$nome_cliente','$telefone_cliente','$email_cliente','$cidade_cliente','$cep_cliente','$login_cliente','$senha_cliente')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo '<div id="toast-success" class="flex fixed-bottom items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
-            <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Check icon</span>
-            </div>
-            <div class="ml-3 text-sm font-normal">Conta Cliada com Sucesso.</div>
-            <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
-                <span class="sr-only">Close</span>
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </button>
-        </div>';
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    } else {
-        $msg = "A senhas não coincidem";
-    }
-}
 ?>
-<style>
-body{
-        overflow: hidden;
-        color: #9CE8DC;
-}
 
-</style>
-<div class="h-screen flex" >
+<!-- <div class="h-screen flex" >
     <div class="flex w-1/2 bg-gradient-to-r from-gray-700 to-gray-500 i justify-around items-center">
         <div>
             <div class="">
@@ -89,7 +48,7 @@ body{
     <div class="flex w-1/2 justify-center items-center bg-gradient-to-r from-gray-500 to-gray-800">
         <div class="block   text-gray-800 mt-4 py-2 rounded-3 font-bold mb-2">
             <div class="block bg-gray-300  text-gray-800 mt-4 py-2 rounded-3 font-bold mb-2">
-                <form class="bg-bg-blue-500" method="POST" action="#">
+                <form class="bg-bg-blue-500" method="POST" action="#" id="form">
                     <div class="p-8 rounded border-gray-200">
                         <h1 class="font-medium text-3xl">Bem Vindo!</h1>
                         <p class=" mt-6">Cadastre-se para a festa!</p>
@@ -160,14 +119,12 @@ body{
                             </div>
                         </div>
                         <br>
-                        <?php if (isset($msg)) {
-                            echo $msg;
-                        } ?>
+                        <span id="msg"></span>
                         <div class="space-x-4 mt-8">
                             <button type="submit" class="block w-full bg-blue-500 border-2  mt-4 py-2 rounded-2xl text-gray-800 font-medium mb-1 hover:bg-gradient-to-r from-blue-500 to-blue-700" name="cadastro">Registrar-se</button>
 
                             <!-- Secondary -->
-                            <a href="./index.php"><span class="text-sm text-gray-800 ml-2 hover:text-black cursor-pointer">Já possui uma conta?</span></a>
+<!-- <a href="./index.php"><span class="text-sm text-gray-800 ml-2 hover:text-black cursor-pointer">Já possui uma conta?</span></a>
                         </div>
                 </form>
 
@@ -176,7 +133,113 @@ body{
 
         </div>
     </div>
-</div>
+</div> -->
+<section class="h-screen">
+    <div class="container px-6 py-12 h-full">
+        <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+            <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+                <img src="../Imgs/undraw_secure_login_pdn4.png" class="w-full" alt="Phone image" />
+            </div>
+            <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+                <form id="form">
+                    <!-- User_name input -->
+                    <div id="user">
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Username" id="username" name="username" />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="mb-6">
+                            <input type="password" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Password" id="password" name="password" />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="mb-6">
+                            <input type="password" class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Repeat Password" id="tpassword" name="tpassword" />
+                        </div>
+                        <div class="row">
+                            <button type="button" id="next-2" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                                Next ->
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="pessoal">
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Nome" id="nome" name="nome" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="email" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Email" id="email" name="email" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Telefone" id="telefone" name="telefone" />
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+
+                                <button type="button" id="return-1" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                                    Prev <- </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" id="next-3" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                                    Next ->
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="loc">
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Cep" id="cep" name="cep" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Uf" id="uf" name="uf" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Cidade" id="cidade" name="cidade" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Bairro" id="bairro" name="bairro" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Endereço" id="endereco" name="endereco" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Bairro" id="bairro" name="bairro" />
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" required class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Numero" id="numero" name="numero" />
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" id="return-2" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                                    Prev <- </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="submit" class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-6">
+                        <a href="#!" class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out">Ja possui login?</a>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-6">
+                        <span id="msg"></span>
+                        <span id="aviso" class="text-lg text-red-500"></span>
+
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- pEGANDO CEP -->
 <script>
@@ -205,7 +268,104 @@ body{
     });
 </script>
 <script>
+    $("#pessoal").hide();
+    $("#loc").hide();
+
+    $("#return-2").click(function(e) {
+        e.preventDefault();
+        $("#loc").hide();
+        $("#pessoal").show();
+
+
+    });
+
+    $("#next-3").click(function(e) {
+        e.preventDefault();
+        if ($("#nome").val() == "" || $("#email").val() == "" || $("#telefone").val() == "") {
+            $("#aviso").html("Insira todos dados corretamente");
+        } else {
+            $("#aviso").html("");
+            $("#pessoal").hide();
+            $("#loc").show();
+        }
+
+    });
+
+    $("#return-1").click(function(e) {
+        e.preventDefault();
+        $("#pessoal").hide();
+        $("#user").show();
+    });
+
+    $("#next-2").click(function(e) {
+        e.preventDefault();
+        if ($("#username").val() == "" || $("#password").val() == "" || $("#tpassword").val() == "") {
+            $("#aviso").html("Insira todos dados corretamente");
+        } else {
+            $("#aviso").html("");
+            $("#user").hide();
+            $("#pessoal").show();
+        }
+    });
+
     $("#telefone").mask("(00)00000-0000")
     $("#cep").mask("00000-000")
+
+    // Adicionando AJAX
+
+    function myFn() {
+        console.log('idle');
+    }
+
+    var myTimer = setInterval(() => {
+        $("#msg").empty();
+    }, 5000);;
+
+    // Then, later at some future time, 
+    // to restart a new 4 second interval starting at this exact moment in time
+    clearInterval(myTimer);
+    myTimer = setInterval(() => {
+        $("#msg").empty();
+    }, 5000);
+
+    $(document).ready(function() {
+        $("#form").submit(function(e) {
+            e.preventDefault();
+            myFn();
+            alert("rodei");
+            $.post("../../Controller/cadastrar.php", {
+                    nome: $("#nome").val(),
+                    email: $("#email").val(),
+                    telefone: $("#telefone").val(),
+                    cep: $("#cep").val(),
+                    uf: $("#uf").val(),
+                    cidade: $("#cidade").val(),
+                    bairro: $("#bairro").val(),
+                    endereco: $("#endereco").val(),
+                    numero: $("#numero").val(),
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    tpassword: $("#tpassword").val()
+                },
+                function(data) {
+                    $("#msg").append(data);
+                    $("#nome").val("")
+                    $("#email").val("")
+                    $("#telefone").val("")
+                    $("#cep").val("")
+                    $("#uf").val("")
+                    $("#cidade").val("")
+                    $("#bairro").val("")
+                    $("#endereco").val("")
+                    $("#numero").val("")
+                    $("#username").val("")
+                    $("#password").val("")
+                    $("#tpassword").val("")
+                }
+            );
+
+        });
+    })
 </script>
+
 <?php include_once("../top_bot/bot.php") ?>

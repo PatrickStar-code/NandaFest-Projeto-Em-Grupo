@@ -129,7 +129,7 @@ if (isset($_POST["enviar"])) {
         <div class="w-full h-100">
             <img src="<?php echo $_SESSION["Empresa"]->img ?>" alt="" class="w-20">
 
-            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Login Area Gerente</h1>
+            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Login Area Funcionario</h1>
 
             <form class="mt-6" action="#" method="POST">
                 <div>
