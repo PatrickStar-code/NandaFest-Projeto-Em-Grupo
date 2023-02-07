@@ -273,6 +273,7 @@ if (!isset($_SESSION["Empresa"])) {
 
     $("#return-2").click(function(e) {
         e.preventDefault();
+        $("#aviso").html("");
         $("#loc").hide();
         $("#pessoal").show();
 
@@ -293,6 +294,7 @@ if (!isset($_SESSION["Empresa"])) {
 
     $("#return-1").click(function(e) {
         e.preventDefault();
+        $("#aviso").html("");
         $("#pessoal").hide();
         $("#user").show();
     });
