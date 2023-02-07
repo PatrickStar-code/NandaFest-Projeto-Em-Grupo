@@ -224,7 +224,7 @@ if (!isset($_SESSION["Empresa"])) {
                     </div>
 
                     <div class="flex justify-between items-center mb-6">
-                        <a href="#!" class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out">Ja possui login?</a>
+                        <a href="./index.php" class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out">Ja possui login?</a>
                     </div>
 
                     <div class="flex justify-between items-center mb-6">
