@@ -282,13 +282,25 @@ if (!isset($_SESSION["Empresa"])) {
 
     $("#next-3").click(function(e) {
         e.preventDefault();
-        if ($("#nome").val() == "" || $("#email").val() == "" || $("#telefone").val() == "") {
-            $("#aviso").html("Insira todos dados corretamente");
-        } else {
-            $("#aviso").html("");
-            $("#pessoal").hide();
-            $("#loc").show();
-        }
+        $.post("../../Controller/verificar_email.php", {
+                email: $("#email").val()
+            },
+            function(data) {
+                if (data == "0") {
+                    var telefone = $("#telefone").val();
+                    if ($("#nome").val() == "" || $("#email").val() == "" || $("#telefone").val() == "" || telefone.length != 14) {
+                        $("#aviso").html("Insira todos dados corretamente");
+                    } else {
+                        $("#aviso").html("");
+                        $("#pessoal").hide();
+                        $("#loc").show();
+                    }
+                } else {
+                    $("#aviso").html("O email ja cadastrado,tente outro email!");
+                }
+            }
+        );
+
 
     });
 
@@ -301,13 +313,25 @@ if (!isset($_SESSION["Empresa"])) {
 
     $("#next-2").click(function(e) {
         e.preventDefault();
-        if ($("#username").val() == "" || $("#password").val() == "" || $("#tpassword").val() == "") {
-            $("#aviso").html("Insira todos dados corretamente");
-        } else {
-            $("#aviso").html("");
-            $("#user").hide();
-            $("#pessoal").show();
-        }
+        $.post("../../Controller/verificar_user.php", {
+                user: $("#username").val()
+            },
+            function(data) {
+
+                if (data == "0") {
+                    if ($("#username").val() == "" || $("#password").val() == "" || $("#tpassword").val() == "" || $("#password").val() != $("#tpassword").val()) {
+                        $("#aviso").html("Insira todos dados corretamente");
+                    } else {
+                        $("#aviso").html("");
+                        $("#user").hide();
+                        $("#pessoal").show();
+                    }
+                } else {
+                    $("#aviso").html("O usuario ja cadastrado,tente outro usuario!");
+                }
+            }
+        );
+
     });
 
     $("#telefone").mask("(00)00000-0000")
@@ -334,7 +358,6 @@ if (!isset($_SESSION["Empresa"])) {
         $("#form").submit(function(e) {
             e.preventDefault();
             myFn();
-            alert("rodei");
             $.post("../../Controller/cadastrar.php", {
                     nome: $("#nome").val(),
                     email: $("#email").val(),
@@ -363,6 +386,9 @@ if (!isset($_SESSION["Empresa"])) {
                     $("#username").val("")
                     $("#password").val("")
                     $("#tpassword").val("")
+                    $("#pessoal").hide();
+                    $("#loc").hide();
+                    $("#user").show();
                 }
             );
 

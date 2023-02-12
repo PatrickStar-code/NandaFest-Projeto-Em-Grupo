@@ -122,10 +122,10 @@
 		</nav>
 	</div>
 
-	<button   id="topButton"
+	<!-- <button   id="topButton"
         class="fixed z-10  p-3 bg-gray-300 rounded-full drop-shadow-xl bottom-10 right-10">
         <img src="../Imgs/icons8-whatsapp-48.png" alt="To aqui">
-    </button>
+    </button> -->
 
 	<!-- MODAL RESPONSAVEL PELO LOGIN -->
 	<div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 h-modal md:h-full">

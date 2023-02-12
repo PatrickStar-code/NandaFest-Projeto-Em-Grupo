@@ -48,7 +48,8 @@
             function (data) {
                 var dados = JSON.parse(data);
                 dados.forEach(mensagem => {
-                    ultimaMensagem = mensagem[0];
+                     ultimaMensagem = mensagem[0];
+
                     if(mensagem[2]=="Funcionario"){
 
                         $("#msg-box").append(`<li class="flex justify-end">
@@ -68,5 +69,5 @@
                 })
             }
         );
-    }, 1000);
+    }, 2000);
 </script>

@@ -10,7 +10,7 @@
 
     if($last_id == 0){
 
-      $sql = "SELECT * FROM chat WHERE clientes_cod_cliente = $id_cliente ORDER BY idchat desc";
+      $sql = "SELECT * FROM chat WHERE clientes_cod_cliente = $id_cliente ORDER BY idchat ASC";
 
     }else{
 
